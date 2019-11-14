@@ -83,7 +83,15 @@ class BreweryComponent extends React.Component {
   }
 }
 
-const MapMarker = () => <i className="fas fa-beer"></i>;
+const Marker = () => {
+  return (
+    <div className="Map-marker"
+      style={{ backgroundColor: 'red', cursor: 'pointer'}}
+    />
+  );
+};
+
+//const MapMarker = () => <i className="fas fa-beer"></i>;
 class SimpleMap extends React.Component {
   static defaultProps = {
     center: {
@@ -105,7 +113,7 @@ class SimpleMap extends React.Component {
           lat = {this.props.lat}
           lng = {this.props.lng}
         >
-          <MapMarker
+          <Marker
             lat={this.props.lat}
             lng={this.props.lng}
           />
