@@ -1,4 +1,5 @@
 import React from 'react';
+import GoogleMapReact from 'google-map-react';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.scss';
 
@@ -55,8 +56,8 @@ class BreweryComponent extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div class="table-responsive">
-          <table class="table table-striped table-dark">
+        <div className="table-responsive">
+          <table className="table table-striped table-dark">
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -67,11 +68,11 @@ class BreweryComponent extends React.Component {
             </thead>
             <tbody>
               {items.map(item => (
-                <tr>
+                <tr key={item.id}>
                   <td>{item.name}</td>
                   <td>{item.brewery_type}</td>
                   <td>{item.street}</td>
-                  <td><a href={item.website_url} title={`Navigate to the website of ${item.name}`} >{item.website_url}</a></td>
+                  <td><a href={item.website_url} title={`Navigate to the website of ${item.name}`} >{item.website_url}</a><SimpleMap lat={item.latitude} lng={item.longitude}></SimpleMap></td>
                 </tr>
               ))}
             </tbody>
@@ -79,5 +80,37 @@ class BreweryComponent extends React.Component {
         </div>
       );
     }
+  }
+}
+
+const MapMarker = () => <i className="fas fa-beer"></i>;
+class SimpleMap extends React.Component {
+  static defaultProps = {
+    center: {
+      lat: 40.269722,
+      lng: -76.875556
+    },
+    zoom: 13
+  };
+
+  render() {
+    return (
+      // Important! Always set the container height explicitly
+      <div style={{ height: '100vh', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: 'AIzaSyCQ7pLhrYUB8lbMmw93gNcHuZCRpB5miXc' }}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+          //yesIWantToUseGoogleMapApiInternals
+          lat = {this.props.lat}
+          lng = {this.props.lng}
+        >
+          <MapMarker
+            lat={this.props.lat}
+            lng={this.props.lng}
+          />
+        </GoogleMapReact>
+      </div>
+    );
   }
 }
