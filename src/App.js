@@ -56,7 +56,7 @@ class BreweryComponent extends React.Component {
     } else {
       return (
         <div class="table-responsive">
-          <table class="table table-dark">
+          <table class="table table-striped table-dark">
             <thead>
               <tr>
                 <th scope="col">Name</th>
@@ -71,7 +71,7 @@ class BreweryComponent extends React.Component {
                   <td>{item.name}</td>
                   <td>{item.brewery_type}</td>
                   <td>{item.street}</td>
-                  <td><a href={item.website_url}>{item.website_url}</a></td>
+                  <td><a href={item.website_url} title={`Navigate to the website of ${item.name}`} >{item.website_url}</a></td>
                 </tr>
               ))}
             </tbody>
