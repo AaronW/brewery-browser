@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        Harrisburg Brewery Browser
+        <h1>Harrisburg Brewery Browser</h1>
         <BreweryComponent></BreweryComponent>
       </header>
     </div>
@@ -55,26 +55,28 @@ class BreweryComponent extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <table class="table table-dark">
-          <thead>
-            <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Type</th>
-              <th scope="col">Address</th>
-              <th scope="col">Website</th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map(item => (
+        <div class="table-responsive">
+          <table class="table table-dark">
+            <thead>
               <tr>
-                <td>{item.name}</td>
-                <td>{item.brewery_type}</td>
-                <td>{item.street}</td>
-                <td><a href={item.website_url}>{item.website_url}</a></td>
+                <th scope="col">Name</th>
+                <th scope="col">Type</th>
+                <th scope="col">Address</th>
+                <th scope="col">Website</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {items.map(item => (
+                <tr>
+                  <td>{item.name}</td>
+                  <td>{item.brewery_type}</td>
+                  <td>{item.street}</td>
+                  <td><a href={item.website_url}>{item.website_url}</a></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       );
     }
   }
