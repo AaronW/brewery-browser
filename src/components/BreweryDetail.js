@@ -4,7 +4,6 @@ import GoogleMapReact from 'google-map-react';
 function BreweryDetail({ match }) {
   useEffect(() => {
     fetchItem();
-    console.log(match);
   }, []);
 
   const [item, setItem] = useState({});
@@ -13,7 +12,6 @@ function BreweryDetail({ match }) {
     const fetchItem = await fetch(`https://api.openbrewerydb.org/breweries/${match.params.id}`);
     const item = await fetchItem.json();
     setItem(item);
-    console.log(item);
   }
   return (
     <div className="container">
@@ -34,7 +32,7 @@ function BreweryDetail({ match }) {
 
 const Marker = () => {
   return (
-    <div className="Map-marker"
+    <div className="map-marker"
       style={{ backgroundColor: 'red', cursor: 'pointer' }}
     />
   );
@@ -57,7 +55,6 @@ class SimpleMap extends React.Component {
           bootstrapURLKeys={{ key: 'AIzaSyCQ7pLhrYUB8lbMmw93gNcHuZCRpB5miXc' }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
-          //yesIWantToUseGoogleMapApiInternals
           lat={this.props.lat}
           lng={this.props.lng}
         >

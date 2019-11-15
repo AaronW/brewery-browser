@@ -44,7 +44,7 @@ class BreweryList extends React.Component {
       } else {
         return (
           <div className="table-responsive">
-            <table className="table table-striped table-dark">
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th scope="col">Name</th>
