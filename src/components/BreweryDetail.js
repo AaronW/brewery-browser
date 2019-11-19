@@ -16,11 +16,12 @@ function BreweryDetail({ match }) {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-sm">      <ul>
-          <li>{item.name}</li>
-          <li>{item.street}</li>
-          <li>{item.city}, {item.state} {item.postal_code}</li>
-        </ul>
+        <div className="col-sm">
+          <ul>
+            <li>{item.name}</li>
+            <li>{item.street}</li>
+            <li>{item.city}, {item.state} {item.postal_code}</li>
+          </ul>
         </div>
         <div className="col-sm">
           <SimpleMap lat={item.latitude} lng={item.longitude}></SimpleMap>
