@@ -5,7 +5,7 @@ import {
 
 interface BreweryListProps {
   error: any,
-  isLoaded: any,
+  isLoaded: boolean,
   items: any
 }
 

@@ -17,6 +17,7 @@ export default function App() {
       <div>
         <Nav />
         <Switch>
+          <Route exact path="/" component={BreweryList} />
           <Route exact path="/about" component={About} />
           <Route exact path="/breweries" component={BreweryList} />
           <Route path="/detail/:id" component={BreweryDetail} />
